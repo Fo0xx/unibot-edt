@@ -100,8 +100,6 @@ const client = new Discord.Client();
 //Lorsque le bot se connecte à Discord
 client.once('ready', () => {
 	console.log('Ready !');
-	//console.log(tab_jour[laDate.getDay]);
-	//console.log(laDate.getHours() + ":" + laDate.getMinutes());
 	setMap();
 	client.user.setStatus('idle');
 	client.user.setActivity("faire un CM !", {type: 1});
@@ -160,7 +158,7 @@ client.on('message', function (message) {
 	const command = args.shift().toLowerCase();
 
 	switch(command){
-        case "edt":
+        case "commandesecrète ;)":
             edtCommande(message, args);
             break;
     }
@@ -168,7 +166,7 @@ client.on('message', function (message) {
 
 function edtCommande(message, args){
     switch(args[0]){
-        case 'set':
+        case 'commandecachée ;)':
             edtSetCommande(message, args);
             break;  
     }
@@ -202,7 +200,7 @@ function edtSetCommande(message, args){
 	channelMap[args[1]] = message.channel.id.toString();
 	console.log(channelMap);
     ecrireJSON();
-    message.channel.send(`Le channel ` + message.guild.channels.cache.get(message.channel.id.toString()).toString() + ` a été set pour le ${args[1]} !`);
+    message.channel.send(`Le channel ` + message.guild.channels.cache.get(message.channel.id.toString()).toString() + ` a été choisi pour le ${args[1]} !`);
 }
 
 client.login(token);
